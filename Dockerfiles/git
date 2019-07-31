@@ -1,0 +1,15 @@
+FROM local/git-dependencies
+
+ARG GIT_URL
+ARG INSTALL_DIR
+env RUNTIME_PREFIX=YesPlease
+
+WORKDIR /usr/local/src
+RUN mkdir -vp ${INSTALL_DIR}
+RUN cp -rv /usr/local/* ${INSTALL_DIR}
+RUN curl -L ${GIT_URL} | tar -zx --strip-components=1
+RUN make -j $(nproc) --quiet prefix="${INSTALL_DIR}" install
+
+RUN make -j $(nproc) --quiet prefix="${INSTALL_DIR}" install-doc
+RUN make -j $(nproc) --quiet prefix="${INSTALL_DIR}" install-html
+RUN cp -rv contrib/completion "${INSTALL_DIR}/share/"
