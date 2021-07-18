@@ -21,7 +21,7 @@ Git should now be installed as a [rez] package named `git`.
 
 ## Usage
 
-To run [Git]: `rez env git -- git -V`
+To run [Git]: `rez env git -- git --version`
 
 ## Maintenance
 
