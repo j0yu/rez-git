@@ -27,7 +27,7 @@ jobs:
       image: centos:7
 
     steps:
-    - uses: actions/setup-python@v1.0.4
+    - uses: actions/setup-python@v1
       with:
         python-version: "${{ matrix.python }}"
 
