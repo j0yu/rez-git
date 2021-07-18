@@ -1,9 +1,9 @@
-name = 'git'
+name = "git"
 
-version = '2.21.0'
+__version__ = "2.32.0"
+version = __version__
 
-build_command = '''
-set -euf -o pipefail
+relocatable = True
 
 cp -rv $REZ_BUILD_SOURCE_PATH/Dockerfiles .
 # docker build --rm \
