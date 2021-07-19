@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:7
 
 RUN yum install -y \
     "@Development Tools" \
@@ -15,4 +15,8 @@ RUN yum install -y \
     tcl-devel \
     tk-devel \
     zlib-devel \
-    && ln -vs /usr/bin/db2x_docbook2texi /usr/bin/docbook2x-texi
+    && ln -vs /usr/bin/db2x_docbook2texi /usr/bin/docbook2x-texi \
+    && yum clean all
+WORKDIR /usr/local/src
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
