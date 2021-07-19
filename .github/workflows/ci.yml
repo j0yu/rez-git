@@ -18,7 +18,7 @@ jobs:
          git diff --color=always --exit-code
 
   install:
-    name: Install as rez package (py${{ matrix.yum_python }})
+    name: Install as rez package (${{ matrix.yum_python }})
     runs-on: ubuntu-latest
     container:
       image: "centos:7"
