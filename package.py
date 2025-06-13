@@ -1,6 +1,6 @@
 name = "git"
 
-__version__ = "2.32.0"
+__version__ = "2.49.0"
 version = __version__ + "+local.1.0.0"
 
 variants = [["platform-linux", "arch-x86_64"]]

@@ -1,10 +1,8 @@
-FROM centos:7
+FROM rockylinux:9.5
 
-RUN yum install -y \
+RUN dnf install -y \
     "@Development Tools" \
     asciidoc \
-    dblatex \
-    docbook2X \
     perl-CPAN \
     xmlto \
     curl-devel \
@@ -15,8 +13,7 @@ RUN yum install -y \
     tcl-devel \
     tk-devel \
     zlib-devel \
-    && ln -vs /usr/bin/db2x_docbook2texi /usr/bin/docbook2x-texi \
-    && yum clean all
+    && dnf clean all
 WORKDIR /usr/local/src
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
